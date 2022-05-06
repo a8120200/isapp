@@ -15,8 +15,8 @@
         }
 
         async function doSelect() {
-            var search = document.getElementById('tf1').value;
-            var sql = 'select * from Tweets where tweet like %%';
+            var search = document.getElementById('tf3').value;
+            var sql = `select * from Tweets where tweet like '%${search}%'`;
             var objects = await osql.connect(sql);
             console.log(objects);
             var html = '';
@@ -35,7 +35,7 @@
 <body>
     <h1>Tweets</h1>
     <button onclick="button1Pressed()">X</button>
-    検索:<input id="tf1" type="textfield">
+    検索:<input id="tf3" type="textfield">
     <hr>
     <p id="result">xxxx</p>
 </body>
