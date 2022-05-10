@@ -14,6 +14,11 @@
             doInsert();
         }
 
+        function button2Pressed() {
+            doSelect();
+        }
+
+
         async function doInsert() {
             var userid = document.getElementById('tf1').value;
             var tweet = document.getElementById('tf2').value;
@@ -25,6 +30,10 @@
             document.getElementById('result').innerHTML = "tweetしました";
             document.getElementById('tf2').value = '';
 
+
+        }
+
+        async function doSelect() {
             var search = document.getElementById('tf3').value;
             var sql = `select * from Tweets where tweet like '%${search}%'`;
             var objects = await osql.connect(sql);
@@ -42,11 +51,8 @@
             html = html + '</table>';
             document.getElementById('result').innerHTML = html;
 
-            var objects = [
-                { name: `'${name}'`, score: `'${time}'`, tweet: `'${tweet}'` },
-            ];
-
         }
+
     </script>
 
 </head>
@@ -60,6 +66,7 @@
     <button onclick="button1Pressed()">tweet</button>
     <br>
     検索:<input id="tf3" type="textfield">
+    <button onclick="button2Pressed()">検索</button>
     <hr>
     <p id="result">xxxx</p>
 </body>
