@@ -10,8 +10,11 @@
     <script type="text/javascript" src="../osql.js"></script>
 
     <script>
+        var x;
         $().ready(function () {
             doHello();
+            x = 0;
+            setInterval(doSelect, 2000);
         });
 
         async function doHello() {
@@ -44,6 +47,7 @@
 
 
         async function doInsert() {
+            x++;
             var userid = document.getElementById('tf1').value;
             var tweet = document.getElementById('tf2').value;
 
