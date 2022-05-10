@@ -51,7 +51,7 @@
 
         async function doSelect() {
             var search = document.getElementById('tf3').value;
-            var sql = `select * from Tweets  where tweet like '%${search}%'`;
+            var sql = `select * from Tweets where tweet like '%${search}%' order by time desc`;
             var objects = await osql.connect(sql);
             console.log(objects);
             var html = '';
