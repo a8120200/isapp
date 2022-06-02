@@ -14,10 +14,19 @@
             init();
         });
 
+
         function init() {
-            var name = sessionStorage.getItem('username');
-            document.getElementById('welcome').innerHTML = 'ようこそ' + name + 'さん';
+            var username = sessionStorage.getItem('username');
+            document.getElementById('welcome').innerHTML = 'ようこそ' + username + 'さん';
+            sessionStorage.setItem('username', username);
         }
+
+        function update() {
+            var userid = sessionStorage.getItem('userid');
+            location.href = `update.html?userid=${userid}`;
+
+        }
+
 
 
     </script>
@@ -30,7 +39,10 @@
     <hr>
     <br>
     <ul>
-        <li><a href="update.html?userid=b">ユーザ情報変更</a></li>
+        <!-- <li><a href="update.html">ユーザ情報変更</a></li> -->
+        <!-- <li><a href="ex6-3-to.html?name=佐藤">A</a></li> -->
+        <!-- '<a href="update.html?userid=' + object.id + '"></a> -->
+        <button onclick="update()">ユーザ情報変更</button>
     </ul>
 
 </body>
