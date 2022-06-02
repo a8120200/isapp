@@ -27,6 +27,12 @@
 
         }
 
+        function tweet() {
+            var userid = sessionStorage.getItem('userid');
+            location.href = `tweet.html?userid=${userid}`;
+
+        }
+
 
 
     </script>
@@ -39,10 +45,8 @@
     <hr>
     <br>
     <ul>
-        <!-- <li><a href="update.html">ユーザ情報変更</a></li> -->
-        <!-- <li><a href="ex6-3-to.html?name=佐藤">A</a></li> -->
-        <!-- '<a href="update.html?userid=' + object.id + '"></a> -->
         <button onclick="update()">ユーザ情報変更</button>
+        <button onclick="tweet()">ツイート機能</button>
     </ul>
 
 </body>
