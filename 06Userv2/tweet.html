@@ -48,16 +48,19 @@
 
         async function doInsert() {
             x++;
+            var username = sessionStorage.getItem('userid');
             var userid = document.getElementById('tf1').value;
             var tweet = document.getElementById('tf2').value;
 
-            var sql = `insert into Tweets (name, tweet, time) values("${userid}", "${tweet}", now());`;
+            var sql = `insert into Tweets (username, tweet, time) values("${userid}","${tweet}", now());`;
             var objects = await osql.connect(sql);
-            console.log(objects);
             document.getElementById('result').innerHTML = "tweetしました";
         }
 
+
+
         async function doSelect() {
+            var username = sessionStorage.getItem('userid');
             var search = document.getElementById('tf3').value;
             var sql = `select * from Tweets where tweet like '%${search}%' order by time desc`;
             var objects = await osql.connect(sql);
@@ -77,6 +80,8 @@
 
         }
 
+
+
     </script>
 
 </head>
@@ -84,7 +89,7 @@
 <body>
     <h1>Tweets</h1>
     <br>
-    名前:<input id="tf1" value="名無し" type="textfield">
+    名前:<input id="tf1" value="" type="textfield">
     <br>
     tweet:<input id="tf2" type="textfield">
     <button onclick="button1Pressed()">tweet</button>
