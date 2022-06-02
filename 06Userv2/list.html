@@ -31,12 +31,23 @@
             html = html + '</table>';
             document.getElementById('result').innerHTML = html;
         }
+
+        async function iddelete() {
+            var inputuser = document.getElementById('delete').value;
+            var sql = `delete from Users where id = "${inputuser}"`;
+            var objects = await osql.connect(sql);
+            console.log(objects);
+        }
+
+        //async と await　はセット
+
     </script>
 
 </head>
 
 <body>
     <h1>Users</h1>
+    <p>ID:<input id="delete" type="text"><button onclick="iddelete()">削除</button></p>
     <p id="result">xxxx</p>
 </body>
 
